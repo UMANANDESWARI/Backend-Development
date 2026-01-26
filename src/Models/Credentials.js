@@ -13,4 +13,4 @@ const data = mongoose.Schema({
     }
 })
 
-models.exports = mongoose.model("Credentials", data)
+module.exports = mongoose.model("Credentials", data)
