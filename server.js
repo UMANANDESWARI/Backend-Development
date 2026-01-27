@@ -1,18 +1,46 @@
 const express = require('express')
+const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose')
+const path = require('path')
+const bcrypt = require('bcrypt');
+const Cron = require('node-cron')
+app.use(cors());
+app.use(express.json());
 
 mongoose.connect("mongodb+srv://umanandeswarikunisetti17_db_user:UmaPavan_1617@cluster0.5smw3lb.mongodb.net/")
-
 .then(() => console.log("DB Connected"))
-.catch(() => console.log(error))
+.catch((err) => console.log(err))
 
-// const FirstRoute = require("./src/Routes/FirstRoute")
-// app.use("/", FirstRoute);
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(7000, () =>{
-    console.log("Server started at port 7000");
+const FirstRoute = require("./src/Routes/FirstRoute")
+app.use("/", FirstRoute);
+
+Cron.schedule("*/2 * * * * *",()=>{
+    console.log("umma");
 })
+
+app.listen(8000, () =>{
+    console.log("Server started at port 8000");
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
