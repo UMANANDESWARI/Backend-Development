@@ -98,4 +98,3 @@ route.post("/encrypt-token",FirstController.encryption)
 //verify encryption
 route.post("/verify-encrypt",FirstController.verification)
 module.exports = route;
-
